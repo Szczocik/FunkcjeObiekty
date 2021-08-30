@@ -9,7 +9,7 @@ def nazwa_funkcji(parametr1, parametr2, parametr3, ... ,parametrn): #dwukropek n
 	kod do wykonania linia 1 #zwróć uwagę na wcięcie
 	kod do wykonania linia 1
  	kod do wykonania linia 1
-'''
+
 rows = [
   ("Styczeń", {"Saldo": 1200, "Wpłaty": 1800, "Wydatki": 1300}),
   ("Luty", {"Saldo": 1300, "Wpłaty": 1900, "Wydatki": 1200}),
@@ -22,3 +22,27 @@ for name, row in rows:
   for k,v in row.items():
   	print("{}: {}".format(k, v))
 print("*" * 10)
+'''
+
+owner = {"Imię": "Adam", "Nazwisko": "Kowalski"}
+rows = [
+  ("Styczeń", {"Saldo": 1200, "Wpłaty": 1800, "Wydatki": 1300}),
+  ("Luty", {"Saldo": 1300, "Wpłaty": 1900, "Wydatki": 1200}),
+]
+
+
+print("*" * 10)
+print("Właściciel konta")
+print("*" * 10)
+for k,v in owner.items():
+  print("{}: {}".format(k, v)
+print("*" * 10)
+
+for name, row in rows:
+  print("*" * 10)
+   print("Saldo miesięczne: {}".format(name))
+  print("*" * 10)
+  for k,v in row.items():
+  	print("{}: {}".format(k, v))
+  print("*" * 10)
+
