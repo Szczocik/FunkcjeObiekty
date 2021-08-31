@@ -52,7 +52,7 @@ print(sorted_numbers)
 
 sorted_numbers = sort_numbers(2, 3, c=1, d=3)  # argumenty pozycyjne muszą być przed przypisanymi (c=1)
 print(sorted_numbers)
-'''
+
 def sort_numbers(a, b, c=1, d=3):  # w nawiasie argumenty pozycyjne
     print("c", c)
     print("d", d)
@@ -61,3 +61,75 @@ def sort_numbers(a, b, c=1, d=3):  # w nawiasie argumenty pozycyjne
 
 sorted_numbers = sort_numbers(2, 3, d=1, c=5)  # nie ma znaczenia kolejność argumentów przypisanych (c,d)
 print(sorted_numbers)
+
+def sort_numbers_other(*args): # *args określa dowolną liczbę argumentów
+    #print(args)  # to jest Tupla
+    temp = list(args)  # zwraca listę argumentów posortowanych [1, 2, 3, 4, 5, 6, 7]
+    return  sorted(temp)
+
+resurt = sort_numbers_other(1, 4, 5, 6, 7, 2, 3)  # wywołanie funkcji
+print(resurt)
+
+def sort_numbers_other(*args, **kwargs): # *args określa dowolną liczbę argumentów, **kwargs tworzy słownik {'name': 'Adam'}
+#    {'color': 'blue'} itd.
+    print(kwargs)
+    temp = list(args)
+    return  sorted(temp)
+
+resurt = sort_numbers_other(1, 4, 5, 6, 7, 2, 3, name="Adam", color="blue")  # wywołanie funkcji
+print(resurt)
+
+
+def sort_numbers_other(a, b, *args, **kwargs):  # kolejność najpierw zdefiniowanie argumenty na sztywno,
+# później *args(nieokreślonia liczba argumentów),następnie na sztywno zdefiniowane argumenty przypisane name="Adam"
+# i na końcu nieokreślona liczba argumentów przypisanych **kwargs  TO JEST KOLEJNOŚĆ UŻYCIA WSZYSTKICH RODZAJI ARGUMENTÓW
+
+
+# KLASY/ Class
+
+class Ball:
+    color = "red"
+    size = 3
+# powyżej jest tylko definicja klasy
+# musimy poniżej stworzyć obiekt/ instancję tej klasy powyżej
+
+ball_1 = Ball()
+print(ball_1.size)  # wywołujemy rodzaj atrybutu poprzez (.) i rodzaj atrybutu, w tym przypadku =3 z def.
+
+ball_2 = Ball()
+print(ball_2.size)  # wywołujemy rodzaj atrybutu poprzez (.) i rodzaj atrybutu, w tym przypadku =3 z def.
+
+ball_2.size = 5     # przypisujemy wartość atrybutu poprzez (.size=5) i rodzaj atrybutu w tym przypadku =5
+print(ball_2.size)
+
+
+class Ball:
+    # tworzymy funkcję w klasie
+    def __init__(self, color_temp="red", size_temp=30):   # to nazywamy metodami - konstruktor (możemy określać atrybuty (pewne cechy) ale również metody (pewne działania).
+        self.color = color_temp  # te atrubutu pochodzą z zewnątrz
+        self.size = size_temp    # te atrubutu pochodzą z zewnątrz
+    def show_attributes(self):
+        print('Ball attrs: ')
+        print(self.color)
+        print(self.size)
+
+ball_1 = Ball("blue", 40)
+ball_1.show_attributes()  # print idzie z podanych argumentów "blue" i 40 - z drugiej def
+
+'''
+
+class Operations:
+    def __init__(self, number1, number2):
+        self.number1 = number1
+        self.number2 = number2
+
+    def add_numbers(self):
+        return self.number1 + self.number2
+
+    def multiplay_numbers(self):
+        return self.number1 * self.number2
+
+
+op = Operations(3, 4)
+print(op.add_numbers())
+print(op.multiplay_numbers())
