@@ -19,6 +19,7 @@ class Student:
      def show_student(self):
          uczen = (f'{name} {surname}, {number_class}')
          studends_list += uczen
+         print(studends_list)
 
          # print(uczen_1.name)
          # print(uczen_1.surname)
@@ -41,6 +42,8 @@ while True:
         name = input('Podaj imię: ')
         surname = input('Podaj nazwisko: ')
         number_class = input('Podaj numer klasy: ')
-        uczen_1 = Student(name, surname, number_class)
-        print(uczen_1)
+        uczen = Student(name, surname, number_class)
+        studends_list += uczen
+
         print(studends_list)
+        break
