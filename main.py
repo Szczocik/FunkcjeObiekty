@@ -11,7 +11,7 @@
 
 
 # Funkcje
-'''
+
 def show_separator(number):
     print("#"*number)
 
@@ -80,7 +80,7 @@ resurt = sort_numbers_other(1, 4, 5, 6, 7, 2, 3, name="Adam", color="blue")  # w
 print(resurt)
 
 
-def sort_numbers_other(a, b, *args, **kwargs):  # kolejność najpierw zdefiniowanie argumenty na sztywno,
+def sort_numbers_other(a, b, *args, c=4, **kwargs):  # kolejność najpierw zdefiniowanie argumenty na sztywno,
 # później *args(nieokreślonia liczba argumentów),następnie na sztywno zdefiniowane argumenty przypisane name="Adam"
 # i na końcu nieokreślona liczba argumentów przypisanych **kwargs  TO JEST KOLEJNOŚĆ UŻYCIA WSZYSTKICH RODZAJI ARGUMENTÓW
 
@@ -103,9 +103,11 @@ ball_2.size = 5     # przypisujemy wartość atrybutu poprzez (.size=5) i rodzaj
 print(ball_2.size)
 
 
+
 class Ball:
     # tworzymy funkcję w klasie
-    def __init__(self, color_temp="red", size_temp=30):   # to nazywamy metodami - konstruktor (możemy określać atrybuty (pewne cechy) ale również metody (pewne działania).
+    def __init__(self, color_temp="red", size_temp=30):   # to nazywamy metodami - konstruktor (możemy określać atrybuty
+        # (pewne cechy) # ale również metody (pewne działania).
         self.color = color_temp  # te atrubutu pochodzą z zewnątrz
         self.size = size_temp    # te atrubutu pochodzą z zewnątrz
     def show_attributes(self):
@@ -116,7 +118,7 @@ class Ball:
 ball_1 = Ball("blue", 40)
 ball_1.show_attributes()  # print idzie z podanych argumentów "blue" i 40 - z drugiej def
 
-'''
+
 
 class Operations:
     def __init__(self, number1, number2):
