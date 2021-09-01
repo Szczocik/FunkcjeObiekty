@@ -108,8 +108,8 @@ class Ball:
     # tworzymy funkcję w klasie
     def __init__(self, color_temp="red", size_temp=30):   # to nazywamy metodami - konstruktor (możemy określać atrybuty
         # (pewne cechy) # ale również metody (pewne działania).
-        self.color = color_temp  # te atrubutu pochodzą z zewnątrz
-        self.size = size_temp    # te atrubutu pochodzą z zewnątrz
+        self.color = color_temp  # te atrubutu pochodzą z zewnątrz (color_temp), self.color - pochodzi z wewnątrz klasy
+        self.size = size_temp    # te atrubutu pochodzą z zewnątrz (size_temp), ssize.color - pochodzi z wewnątrz klasy
     def show_attributes(self):
         print('Ball attrs: ')
         print(self.color)
