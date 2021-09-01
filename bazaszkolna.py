@@ -21,6 +21,12 @@ class Student:
          studends_list += uczen
          print(studends_list)
 
+class Teacher:
+    def __init__(self, name, surname, object):
+        self.name = name
+        self.surname = surname
+        self.object = object
+
          # print(uczen_1.name)
          # print(uczen_1.surname)
          # print(uczen_1.number_class)
