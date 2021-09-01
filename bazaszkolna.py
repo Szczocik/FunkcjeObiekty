@@ -47,3 +47,10 @@ while True:
 
         print(studends_list)
         break
+    if command == 'nauczyciel':
+        teacher_name = input('Podaj imię: ')
+        teacher_surname = input('Podaj nazwisko: ')
+        subject = input('Przedmiot: ')
+        techer_class_number = input('Podaj numer klasy: ')
+        if techer_class_number == '':
+            break
