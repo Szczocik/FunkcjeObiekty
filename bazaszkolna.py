@@ -3,10 +3,6 @@
 PHRASE = ('nazwa klasy', 'wychowawca', 'nauczyciel', 'uczen')  # dozwolone komendy uruchomienia wejścia
 USER_TYPE = ('uczen', 'nauczyciel', 'wychowawca', 'koniec')  # dozwolone komendy uruchomienia programu
 
-class_list = []
-studends_list = []
-tichers_list = []
-mentor_list = []
 
 
 
@@ -16,10 +12,9 @@ class Student:
          self.surname = surname
          self.number_class = number_class
 
-     def show_student(self):
-         uczen = (f'{name} {surname}, {number_class}')
-         studends_list[] += uczen
-         print(studends_list)
+     def add_student(self):
+        studends_list.append(f'{name}, {surname},{number_class}')
+
 
 class Teacher:
     def __init__(self, name, surname, object):
@@ -33,6 +28,13 @@ class Teacher:
 
 # uczen_1 = Student('Fanek', 'Kowalski')
 # uczen_1.show_student()
+
+class_list = []
+studends_list = []
+tichers_list = []
+mentor_list = []
+
+
 
 while True:
     command = input("Wpisz typ użytkownika: ")
@@ -48,10 +50,10 @@ while True:
         name = input('Podaj imię: ')
         surname = input('Podaj nazwisko: ')
         number_class = input('Podaj numer klasy: ')
-        uczen = Student()
-        studends_list += uczen
+        uczen = f'{name}, {surname}, {number_class}'
+        studends_list.appent(uczen)
 
-        print(studends_list)
+
         break
     if command == 'nauczyciel':
         teacher_name = input('Podaj imię: ')

@@ -33,6 +33,7 @@ def sum_numbers(number1, number2):
     result = number1 + number2
     diff = number1 - number2
     return (result, diff)  # przy 2 działaniach możemy otrzymać Tuplę
+
 result_sum, result_diff = sum_numbers(2, 3)  # możemy odrazu przyporządkować Tuplę
 print("Result:", result_sum, result_diff)
 
@@ -42,6 +43,7 @@ def sort_numbers(a, b, c):  # w nawiasie argumenty pozycyjne
 
 sorted_numbers = sort_numbers(2, 3, 1)
 print(sorted_numbers)
+
 def sort_numbers(a, b, c):  # w nawiasie argumenty pozycyjne
     temp = [a, b, c]
     return sorted_temp
