@@ -18,7 +18,7 @@ class Student:
 
      def show_student(self):
          uczen = (f'{name} {surname}, {number_class}')
-         studends_list += uczen
+         studends_list[] += uczen
          print(studends_list)
 
 class Teacher:
@@ -48,7 +48,7 @@ while True:
         name = input('Podaj imię: ')
         surname = input('Podaj nazwisko: ')
         number_class = input('Podaj numer klasy: ')
-        uczen = Student(name, surname, number_class)
+        uczen = Student()
         studends_list += uczen
 
         print(studends_list)
