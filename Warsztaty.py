@@ -30,12 +30,18 @@ class Biblioteka:
         id = int(input('Podaj ID książki do usunięcia: '))
         for index, book in enumerate(self.books):
             if id == book.id:
-                print(f'USUWAM! {book}')
+                del self.books[index]
+                del book
 
     def set_book_id(self):
         if not self.books:
             return 1
-        return len(self.books) + 1
+        maz_id = 0
+        for book in self.books:
+            if book.id > max_id:
+                max_id = book_id
+        return max_id + 1
+
 
 
 
