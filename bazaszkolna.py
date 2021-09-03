@@ -3,7 +3,10 @@
 PHRASE = ('nazwa klasy', 'wychowawca', 'nauczyciel', 'uczen')  # dozwolone komendy uruchomienia wejścia
 USER_TYPE = ('uczen', 'nauczyciel', 'wychowawca', 'koniec')  # dozwolone komendy uruchomienia programu
 
-
+class_list = []
+studends_list = []
+tichers_list = []
+mentor_list = []
 
 
 class Student:
@@ -29,10 +32,7 @@ class Teacher:
 # uczen_1 = Student('Fanek', 'Kowalski')
 # uczen_1.show_student()
 
-class_list = []
-studends_list = []
-tichers_list = []
-mentor_list = []
+
 
 
 

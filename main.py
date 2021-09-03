@@ -11,7 +11,7 @@
 
 
 # Funkcje
-'''
+
 def show_separator(number):
     print("#"*number)
 
@@ -137,5 +137,4 @@ class Operations:
 op = Operations(3, 4)
 print(op.add_numbers())
 print(op.multiplay_numbers())
-'''
 
