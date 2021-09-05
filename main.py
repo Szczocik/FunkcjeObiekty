@@ -1,4 +1,4 @@
-#  plik warsztatowy Funkcje Obiekty PEP
+ plik warsztatowy Funkcje Obiekty PEP
 
 # Funkcje to nazwane i odizolowane fragmenty kodu, które opcjonalnie mogą zwracać
 # wartość: funkcje definiuje się przez jej nazwę, parametry i ciało (kod właśiciwy funkcji).
