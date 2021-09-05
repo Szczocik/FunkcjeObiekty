@@ -17,8 +17,10 @@ class School:
         self.class_list = []
         self.mentor_list = []
 
-
-
+    def add_student(self):
+        uczen = (f'{self.name}, {self.first_name}')
+        self.student_list.append(uczen)
+        print(self.student_list)
 
 
 class Student:
@@ -27,10 +29,7 @@ class Student:
          self.first_name = input(first_name)
          self.number_class = input(number_class)
 
-    def add_student(self):
-        uczen = (f'{name}, {first_name}')
-        self.student_list.append(uczen)
-        print(self.student_list)
+
 
 
 class Teacher:
@@ -62,7 +61,8 @@ while True:
     else:
         name = input('Podaj imię: ')
         first_name = input('Podaj nazwisko: ')
-            if command == 'uczen':
+        if command == 'uczen':
+            student.add_student()
 
 
 
