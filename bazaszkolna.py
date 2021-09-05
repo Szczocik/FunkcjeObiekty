@@ -4,18 +4,25 @@ PHRASE = ('nazwa klasy', 'wychowawca', 'nauczyciel', 'uczen')  # dozwolone komen
 USER_TYPE = ('uczen', 'nauczyciel', 'wychowawca', 'koniec')  # dozwolone komendy uruchomienia programu
 
 class_list = []
-studends_list = []
-tichers_list = []
+
+
 mentor_list = []
+
+class School:
+    def __init__(self, name, address):
+        self.name = name
+        self.address = address
+        self.tichers_list = []
+        self.studends_list = []
 
 
 class Student:
-     def __init__(self, name, surname, number_class):
+    def __init__(self, name, first_name, number_class):
          self.name = name
-         self.surname = surname
+         self.first_name = first_name
          self.number_class = number_class
 
-     def add_student(self):
+    def add_student(self):
         studends_list.append(f'{name}, {surname},{number_class}')
 
 
