@@ -3,33 +3,40 @@
 PHRASE = ('nazwa klasy', 'wychowawca', 'nauczyciel', 'uczen')  # dozwolone komendy uruchomienia wejścia
 USER_TYPE = ('uczen', 'nauczyciel', 'wychowawca', 'koniec')  # dozwolone komendy uruchomienia programu
 
-class_list = []
 
 
-mentor_list = []
+
+
 
 class School:
     def __init__(self, name, address):
         self.name = name
         self.address = address
         self.tichers_list = []
-        self.studends_list = []
+        self.students_list = []
+        self.class_list = []
+        self.mentor_list = []
+
+
+
 
 
 class Student:
     def __init__(self, name, first_name, number_class):
-         self.name = name
-         self.first_name = first_name
-         self.number_class = number_class
+         self.name = input(name)
+         self.first_name = input(first_name)
+         self.number_class = input(number_class)
 
     def add_student(self):
-        studends_list.append(f'{name}, {surname},{number_class}')
+        uczen = (f'{name}, {first_name}')
+        self.student_list.append(uczen)
+        print(self.student_list)
 
 
 class Teacher:
-    def __init__(self, name, surname, object):
+    def __init__(self, name, first_name, object):
         self.name = name
-        self.surname = surname
+        self.first_name = first_name
         self.object = object
 
          # print(uczen_1.name)
@@ -39,33 +46,31 @@ class Teacher:
 # uczen_1 = Student('Fanek', 'Kowalski')
 # uczen_1.show_student()
 
+szkola = School(name="Szkoła", address="Warszawa")
 
 
 
 
 while True:
     command = input("Wpisz typ użytkownika: ")
-
     if command not in USER_TYPE:
-        print("Wybierz poprawną komendę: 'uczen', 'nauczyciel', 'wychowawca', 'koniec': ")
+        print(f"Wybierz poprawną komendę: {USER_TYPE}")
         continue
     if command == 'koniec':
         print("Koniec programu!")
         break
-
-    if command == 'uczen':
+    else:
         name = input('Podaj imię: ')
-        surname = input('Podaj nazwisko: ')
-        number_class = input('Podaj numer klasy: ')
-        uczen = f'{name}, {surname}, {number_class}'
-        studends_list.appent(uczen)
+        first_name = input('Podaj nazwisko: ')
+            if command == 'uczen':
+
 
 
         break
-    if command == 'nauczyciel':
-        teacher_name = input('Podaj imię: ')
-        teacher_surname = input('Podaj nazwisko: ')
-        subject = input('Przedmiot: ')
-        techer_class_number = input('Podaj numer klasy: ')
+        if command == 'nauczyciel':
+            teacher_name = input('Podaj imię: ')
+            teacher_surname = input('Podaj nazwisko: ')
+            subject = input('Przedmiot: ')
+            techer_class_number = input('Podaj numer klasy: ')
         if techer_class_number == '':
             break
