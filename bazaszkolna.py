@@ -17,10 +17,10 @@ class School:
         self.class_list = []
         self.mentor_list = []
 
-    def add_student(self):
-        uczen = (f'{self.name}, {self.first_name}')
-        self.student_list.append(uczen)
-        print(self.student_list)
+
+
+
+
 
 
 class Student:
@@ -28,6 +28,12 @@ class Student:
          self.name = input(name)
          self.first_name = input(first_name)
          self.number_class = input(number_class)
+
+    def add_student(self):
+        if command == 'uczen':
+            uczen = (f'{self.name}, {self.first_name}, {number_class}')
+            self.student_list.append(uczen)
+        print(self.student_list)
 
 
 
@@ -46,6 +52,7 @@ class Teacher:
 # uczen_1.show_student()
 
 szkola = School(name="Szkoła", address="Warszawa")
+uczen = Student()
 
 
 
@@ -62,15 +69,16 @@ while True:
         name = input('Podaj imię: ')
         first_name = input('Podaj nazwisko: ')
         if command == 'uczen':
-            student.add_student()
+            number_class = input('Podaj klasę: ')
+            uczen.add_student()
 
 
 
         break
-        if command == 'nauczyciel':
-            teacher_name = input('Podaj imię: ')
-            teacher_surname = input('Podaj nazwisko: ')
-            subject = input('Przedmiot: ')
-            techer_class_number = input('Podaj numer klasy: ')
-        if techer_class_number == '':
-            break
+        # if command == 'nauczyciel':
+        #     teacher_name = input('Podaj imię: ')
+        #     teacher_surname = input('Podaj nazwisko: ')
+        #     subject = input('Przedmiot: ')
+        #     techer_class_number = input('Podaj numer klasy: ')
+        # if techer_class_number == '':
+        #     break
