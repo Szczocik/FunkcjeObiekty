@@ -15,13 +15,22 @@ class School:
         self.class_list = []
         self.mentor_list = []
 
+
     def add_student(self):
         self.first_name = input('Podaj imię: ')
         self.name = input('Podaj nazwisko: ')
         self.number_class = input('Podaj klasę: ')
-        uczen = Student(first_name=first_name, name=name, number_class=number_class)
+        uczen = Student(first_name=self.first_name, name=self.name, number_class=self.number_class)
         self.students_list.append(uczen)
-        print(self.students_list)
+
+
+
+
+    def show_students_list(self):
+        if not self.students_list:
+            print('Lista uczniów jest pusta')
+        else:
+            print(self.students_list)
 
 
 
@@ -32,7 +41,8 @@ class Student:
         self.name = name
         self.number_class = number_class
 
-
+    def __repr__(self):
+        return f'({self.first_name} {self.name}, klasa {self.number_class})'
 
 
 
@@ -63,14 +73,15 @@ while True:
     if command == 'koniec':
         print("Koniec programu!")
         break
-    else:
+    if command == 'uczen':
         szkola.add_student()
-        # name = input('Podaj imię: ')
-        # first_name = input('Podaj nazwisko: ')
-        # if command == 'uczen':
-        #     number_class = input('Podaj klasę: ')
-        #     szkola.add_student()
+        szkola.show_students_list()
+        continue
+    else:
         break
+
+
+
         # if command == 'nauczyciel':
         #     teacher_name = input('Podaj imię: ')
         #     teacher_surname = input('Podaj nazwisko: ')
