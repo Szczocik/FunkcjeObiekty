@@ -9,31 +9,31 @@ USER_TYPE = ('uczen', 'nauczyciel', 'wychowawca', 'koniec')  # dozwolone komendy
 
 
 class School:
-    def __init__(self, name, address):
-        self.name = name
-        self.address = address
-        self.tichers_list = []
+    def __init__(self):
         self.students_list = []
+        self.tichers_list = []
         self.class_list = []
         self.mentor_list = []
 
-
-
+    def add_student(self):
+        self.first_name = input('Podaj imię: ')
+        self.name = input('Podaj nazwisko: ')
+        self.number_class = input('Podaj klasę: ')
+        uczen = Student(first_name=first_name, name=name, number_class=number_class)
+        self.students_list.append(uczen)
+        print(self.students_list)
 
 
 
 
 class Student:
-    def __init__(self, name, first_name, number_class):
-         self.name = input(name)
-         self.first_name = input(first_name)
-         self.number_class = input(number_class)
+    def __init__(self, first_name, name, number_class):
+        self.first_name = first_name
+        self.name = name
+        self.number_class = number_class
 
-    def add_student(self):
-        if command == 'uczen':
-            uczen = (f'{self.name}, {self.first_name}, {number_class}')
-            self.student_list.append(uczen)
-        print(self.student_list)
+
+
 
 
 
@@ -51,9 +51,7 @@ class Teacher:
 # uczen_1 = Student('Fanek', 'Kowalski')
 # uczen_1.show_student()
 
-szkola = School(name="Szkoła", address="Warszawa")
-uczen = Student()
-
+szkola = School()
 
 
 
@@ -66,14 +64,12 @@ while True:
         print("Koniec programu!")
         break
     else:
-        name = input('Podaj imię: ')
-        first_name = input('Podaj nazwisko: ')
-        if command == 'uczen':
-            number_class = input('Podaj klasę: ')
-            uczen.add_student()
-
-
-
+        szkola.add_student()
+        # name = input('Podaj imię: ')
+        # first_name = input('Podaj nazwisko: ')
+        # if command == 'uczen':
+        #     number_class = input('Podaj klasę: ')
+        #     szkola.add_student()
         break
         # if command == 'nauczyciel':
         #     teacher_name = input('Podaj imię: ')
