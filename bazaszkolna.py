@@ -69,12 +69,6 @@ class Teacher:
     def __repr__(self):
         return f'({self.first_name} {self.name}, przedmiot {self.object})'
 
-         # print(uczen_1.name)
-         # print(uczen_1.surname)
-         # print(uczen_1.number_class)
-
-# uczen_1 = Student('Fanek', 'Kowalski')
-# uczen_1.show_student()
 
 szkola = School()
 
@@ -98,11 +92,3 @@ while True:
     else:
         break
 
-
-        # if command == 'nauczyciel':
-        #     teacher_name = input('Podaj imię: ')
-        #     teacher_surname = input('Podaj nazwisko: ')
-        #     subject = input('Przedmiot: ')
-        #     techer_class_number = input('Podaj numer klasy: ')
-        # if techer_class_number == '':
-        #     break
