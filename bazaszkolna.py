@@ -11,9 +11,22 @@ USER_TYPE = ('uczen', 'nauczyciel', 'wychowawca', 'koniec')  # dozwolone komendy
 class School:
     def __init__(self):
         self.students_list = []
-        self.tichers_list = []
+        self.teachers_list = []
         self.class_list = []
         self.mentor_list = []
+
+    def add_teacher(self):
+        self.first_name = input('Podaj imię: ')
+        self.name = input('Podaj nazwisko: ')
+        self.object = input('Podaj przedmiot: ')
+        nauczyciel = Teacher(first_name=self.first_name, name=self.name, object=self.object)
+        self.teachers_list.append(nauczyciel)
+
+    def show_teachers_list(self):
+        if not self.teachers_list:
+            print('Lista nauczycieli jest pusta')
+        else:
+            print(self.teachers_list)
 
 
     def add_student(self):
@@ -22,7 +35,6 @@ class School:
         self.number_class = input('Podaj klasę: ')
         uczen = Student(first_name=self.first_name, name=self.name, number_class=self.number_class)
         self.students_list.append(uczen)
-
 
 
 
@@ -49,10 +61,13 @@ class Student:
 
 
 class Teacher:
-    def __init__(self, name, first_name, object):
-        self.name = name
+    def __init__(self, first_name, name, object):
         self.first_name = first_name
+        self.name = name
         self.object = object
+
+    def __repr__(self):
+        return f'({self.first_name} {self.name}, przedmiot {self.object})'
 
          # print(uczen_1.name)
          # print(uczen_1.surname)
@@ -77,9 +92,11 @@ while True:
         szkola.add_student()
         szkola.show_students_list()
         continue
+    if command == 'nauczyciel':
+        szkola.add_teacher()
+        szkola.show_teachers_list()
     else:
         break
-
 
 
         # if command == 'nauczyciel':
