@@ -15,7 +15,7 @@ class School:
         self.teachers_list = {}
         self.class_list = {}
         self.mentor_list = []
-        self.teacher_class = []
+        self.class_teacher_list = {}
         self.object_list = {}
 
     def add_teacher(self):
@@ -56,6 +56,23 @@ class School:
             print(self.students_list)
             print(self.class_list)
 
+    def add_class_teacher(self):
+        self.first_name = input('Podaj imię: ')
+        self.name = input('Podaj nazwisko: ')
+        self.number_class = input('Podaj klasę: ')
+
+        if not self.class_teacher_list.get(self.number_class):
+            self.class_teacher_list[self.number_class] = {'class_teacher':[f'{self.first_name} {self.name}']}
+        else:
+            print('Jest już przypisany inny wychowawca ')
+
+    def show_class_teacher_list(self):
+        if not self.class_teacher_list:
+            print('Lista klas jest pusta')
+        else:
+            print(self.class_teacher_list)
+
+
 class Student:
     def __init__(self, first_name, name, number_class):
         self.first_name = first_name
@@ -71,11 +88,16 @@ class Teacher:
         self.first_name = first_name
         self.name = name
         self.object = object
-        # self.teacher_number_class = teacher_number_class
+
 
 
     def __repr__(self):
         return f'({self.first_name} {self.name}, przedmiot {self.object})'
+
+class ClassTeacher:
+    def __init__(self, first_name, name):
+        self.first_name = first_name
+        self.name = name
 
 szkola = School()
 
@@ -94,6 +116,8 @@ while True:
     if command == 'nauczyciel':
         szkola.add_teacher()
         szkola.show_object_list()
-    else:
-        break
+    if command == 'wychowawca':
+        szkola.add_class_teacher()
+        szkola.show_class_teacher_list()
+
 
