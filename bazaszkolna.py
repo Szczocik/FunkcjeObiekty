@@ -12,32 +12,29 @@ class School:
     def __init__(self):
 
         self.students_list = []
-        self.teachers_list = []
+        self.teachers_list = {}
         self.class_list = {}
         self.mentor_list = []
         self.teacher_class = []
+        self.object_list = {}
 
     def add_teacher(self):
         self.first_name = input('Podaj imię: ')
         self.name = input('Podaj nazwisko: ')
         self.object = input('Podaj przedmiot: ')
-        self.teacher_number_class = input('Podaj klasę: ')
+        self.number_class = input('Podaj klasę: ')
 
-        nauczyciel = Teacher(first_name=self.first_name, name=self.name, object=self.object,)
-        self.teachers_list.append(nauczyciel)
-
-        # while self.teacher_number_class != '':
-        #     self.teacher_class.append(self.teacher_number_class)
-        #
-        # else:
-        #     print(self.teacher_number_class)
-
-
-    def show_teachers_list(self):
-        if not self.teachers_list:
-            print('Lista nauczycieli jest pusta')
+        if not self.object_list.get(self.object):
+            self.object_list[self.object] = {'number_class':[f'{self.number_class}'],'teachers':[f'{self.first_name} {self.name}']}
         else:
-            print(self.teachers_list)
+            self.object_list[self.object]['number_class'].append(f'{self.number_class}')
+
+
+    def show_object_list(self):
+        if not self.object_list:
+            print('Lista przedmiotów jest pusta')
+        else:
+            print(self.object_list)
 
 
     def add_student(self):
@@ -46,6 +43,7 @@ class School:
         self.number_class = input('Podaj klasę: ')
         uczen = Student(first_name=self.first_name, name=self.name, number_class=self.number_class)
         self.students_list.append(uczen)
+
         if not self.class_list.get(self.number_class):
             self.class_list[self.number_class] = {'students':[f'{self.first_name} {self.name}']}
         else:
@@ -95,7 +93,7 @@ while True:
         continue
     if command == 'nauczyciel':
         szkola.add_teacher()
-        szkola.show_teachers_list()
+        szkola.show_object_list()
     else:
         break
 
