@@ -1,12 +1,11 @@
-
+import sys
 
 PHRASE = ('nazwa klasy', 'wychowawca', 'nauczyciel', 'uczen')  # dozwolone komendy uruchomienia wejścia
 USER_TYPE = ('uczen', 'nauczyciel', 'wychowawca', 'koniec')  # dozwolone komendy uruchomienia programu
+# mode = PHRASE
 
 
-
-
-
+mode = sys.argv[1]
 
 class School:
     def __init__(self):
@@ -31,7 +30,8 @@ class School:
             if not self.object_list.get(self.object):
                 self.object_list[self.object] = {'number_class':[f'{self.number_class}'],'teachers':[f'{self.first_name} {self.name}']}
             else:
-                self.object_list[self.object]['number_class'].append(f'{self.number_class}')
+                if self.number_class not in self.object_list[self.object]['number_class']:
+                    self.object_list[self.object]['number_class'].append(f'{self.number_class}')
 
 
     def show_object_list(self):
@@ -68,19 +68,27 @@ class School:
             self.number_class = input('Podaj klasę: ')
             if len(self.number_class) == 0:
                 break
-
-            if not self.class_teacher_list.get(self.number_class):
-                self.class_teacher_list[self.number_class] = {'class_teacher':[f'{self.first_name} {self.name}']}
-
+            if not self.class_teacher_list.get(f'{self.first_name} {self.name}'):
+                self.class_teacher_list[f'{self.first_name} {self.name}'] = {'class': [self.number_class]}
             else:
+                self.class_teacher_list[f'{self.first_name} {self.name}']['class'].append(self.number_class)
+        print(self.class_teacher_list)
 
-                print('Jest już przypisany inny wychowawca ')
+    def show_class_teacher_students(self):
+        if not self.class_teacher_list:
+            print('Lista klas jest pusta')
+        else:
+            for name, value in self.class_teacher_list.items():
+                for c in value['class']:
+                    print(self.class_list[c]['students'])
 
     def show_class_teacher_list(self):
         if not self.class_teacher_list:
             print('Lista klas jest pusta')
         else:
-            print(self.class_teacher_list)
+            for self.number_class, value in self.class_teacher_list.items():
+                print(f'Nr klasy: {self.number_class}, wychowawca:', value.get('class_teacher'))
+            # print(self.class_teacher_list)
 
 
 class Student:
@@ -131,5 +139,8 @@ while True:
     if command == 'wychowawca':
         szkola.add_class_teacher()
         szkola.show_class_teacher_list()
+
+if mode == 'nazwa klasy':
+    szkola.show_class_teacher_students()
 
 
