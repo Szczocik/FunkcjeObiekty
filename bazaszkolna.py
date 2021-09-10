@@ -22,12 +22,16 @@ class School:
         self.first_name = input('Podaj imię: ')
         self.name = input('Podaj nazwisko: ')
         self.object = input('Podaj przedmiot: ')
-        self.number_class = input('Podaj klasę: ')
 
-        if not self.object_list.get(self.object):
-            self.object_list[self.object] = {'number_class':[f'{self.number_class}'],'teachers':[f'{self.first_name} {self.name}']}
-        else:
-            self.object_list[self.object]['number_class'].append(f'{self.number_class}')
+        while True:
+            self.number_class = input('Podaj klasę: ')
+            if len(self.number_class) == 0:
+                break
+
+            if not self.object_list.get(self.object):
+                self.object_list[self.object] = {'number_class':[f'{self.number_class}'],'teachers':[f'{self.first_name} {self.name}']}
+            else:
+                self.object_list[self.object]['number_class'].append(f'{self.number_class}')
 
 
     def show_object_list(self):
@@ -59,12 +63,18 @@ class School:
     def add_class_teacher(self):
         self.first_name = input('Podaj imię: ')
         self.name = input('Podaj nazwisko: ')
-        self.number_class = input('Podaj klasę: ')
 
-        if not self.class_teacher_list.get(self.number_class):
-            self.class_teacher_list[self.number_class] = {'class_teacher':[f'{self.first_name} {self.name}']}
-        else:
-            print('Jest już przypisany inny wychowawca ')
+        while True:
+            self.number_class = input('Podaj klasę: ')
+            if len(self.number_class) == 0:
+                break
+
+            if not self.class_teacher_list.get(self.number_class):
+                self.class_teacher_list[self.number_class] = {'class_teacher':[f'{self.first_name} {self.name}']}
+
+            else:
+
+                print('Jest już przypisany inny wychowawca ')
 
     def show_class_teacher_list(self):
         if not self.class_teacher_list:
@@ -95,9 +105,11 @@ class Teacher:
         return f'({self.first_name} {self.name}, przedmiot {self.object})'
 
 class ClassTeacher:
-    def __init__(self, first_name, name):
+    def __init__(self, first_name, name, number_class):
         self.first_name = first_name
         self.name = name
+        self.number_class = number_class
+
 
 szkola = School()
 
