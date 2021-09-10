@@ -52,6 +52,7 @@ class School:
             self.class_list[self.number_class] = {'students':[f'{self.first_name} {self.name}']}
         else:
             self.class_list[self.number_class]['students'].append(f'{self.first_name} {self.name}')
+        print(self.class_list)
 
     def show_students_list(self):
         if not self.students_list:
@@ -72,7 +73,6 @@ class School:
                 self.class_teacher_list[f'{self.first_name} {self.name}'] = {'class': [self.number_class]}
             else:
                 self.class_teacher_list[f'{self.first_name} {self.name}']['class'].append(self.number_class)
-        print(self.class_teacher_list)
 
     def show_class_teacher_students(self):
         if not self.class_teacher_list:
@@ -82,13 +82,13 @@ class School:
                 for c in value['class']:
                     print(self.class_list[c]['students'])
 
-    def show_class_teacher_list(self):
-        if not self.class_teacher_list:
-            print('Lista klas jest pusta')
-        else:
-            for self.number_class, value in self.class_teacher_list.items():
-                print(f'Nr klasy: {self.number_class}, wychowawca:', value.get('class_teacher'))
-            # print(self.class_teacher_list)
+    # def show_class_teacher_list(self):
+    #     if not self.class_teacher_list:
+    #         print('Lista klas jest pusta')
+    #     else:
+    #         for self.number_class, value in self.class_teacher_list.items():
+    #             print(f'Nr klasy: {self.number_class}, wychowawca:', value.get('class_teacher'))
+    #         # print(self.class_teacher_list)
 
 
 class Student:
@@ -138,7 +138,7 @@ while True:
         szkola.show_object_list()
     if command == 'wychowawca':
         szkola.add_class_teacher()
-        szkola.show_class_teacher_list()
+        # szkola.show_class_teacher_students()
 
 if mode == 'nazwa klasy':
     szkola.show_class_teacher_students()
