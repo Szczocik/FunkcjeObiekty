@@ -146,6 +146,7 @@ if mode == 'wychowawca':
     pass
 if mode == 'nauczyciel'
     pass
-
+if mode == 'uczen'
+    pass
 
 
