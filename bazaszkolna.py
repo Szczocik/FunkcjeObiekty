@@ -142,5 +142,7 @@ while True:
 
 if mode == 'nazwa klasy':
     szkola.show_class_teacher_students()
+if mode == 'wychowawca':
+    pass
 
 
