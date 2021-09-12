@@ -73,6 +73,7 @@ class School:
                 self.class_teacher_list[f'{self.first_name} {self.name}'] = {'class': [self.number_class]}
             else:
                 self.class_teacher_list[f'{self.first_name} {self.name}']['class'].append(self.number_class)
+                print(self.class_teacher_list)
 
     def show_class_teacher_students(self):
         if not self.class_teacher_list:
@@ -144,9 +145,9 @@ if mode == 'nazwa klasy':
     szkola.show_class_teacher_students()
 if mode == 'wychowawca':
     pass
-if mode == 'nauczyciel'
+if mode == 'nauczyciel':
     pass
-if mode == 'uczen'
+if mode == 'uczen':
     pass
 
 
