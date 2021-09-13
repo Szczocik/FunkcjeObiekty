@@ -89,7 +89,7 @@ class School:
         else:
             for name, value in self.class_teacher_list.items():
                 for c in value['class']:
-                    print(self.class_list, value.get('students'))
+                    print(name, self.class_list[c]['students'])
 
     # def show_class_teacher_list(self):
     #     if not self.class_teacher_list:
@@ -152,7 +152,7 @@ while True:
 if mode == 'nazwa klasy':
     szkola.show_class_teacher_students()
 if mode == 'wychowawca':
-    pass
+    szkola.show_students_class_teacher()
 if mode == 'nauczyciel':
     pass
 if mode == 'uczen':
