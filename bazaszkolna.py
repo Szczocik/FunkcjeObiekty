@@ -91,14 +91,6 @@ class School:
                 for c in value['class']:
                     print(name, self.class_list[c]['students'])
 
-    # def show_class_teacher_list(self):
-    #     if not self.class_teacher_list:
-    #         print('Lista klas jest pusta')
-    #     else:
-    #         for self.number_class, value in self.class_teacher_list.items():
-    #             print(f'Nr klasy: {self.number_class}, wychowawca:', value.get('class_teacher'))
-    #         # print(self.class_teacher_list)
-
 
 class Student:
     def __init__(self, first_name, name, number_class):
