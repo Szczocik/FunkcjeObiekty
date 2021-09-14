@@ -91,12 +91,11 @@ class School:
             print('Lista klas jest pusta')
         else:
             for name, value in self.class_teacher_list.items():
-                for c in value['class']:
-                    if value:
-                        all_students = []
-                        all_students += self.class_list[c]['students']
-                        print(all_students)
-                    # print(f'Wychowawca: {name}, posiada następujących uczniów w klasie:', self.class_list[c]['students'])
+                # f value['class']:
+                #     all_students = []
+                #     all_students += self.class_list[c]['students']
+                #     print(all_students)
+                print(f'Wychowawca: {name}, posiada następujących uczniów w klasie:', self.class_list[c]['students'])
 
 
 class Student:
