@@ -1,3 +1,4 @@
+import pprint
 import sys
 
 PHRASE = ('nazwa klasy', 'wychowawca', 'nauczyciel', 'uczen')  # dozwolone komendy uruchomienia wejścia
@@ -13,7 +14,6 @@ class School:
         self.students_list = []
         self.teachers_list = {}
         self.class_list = {}
-        self.mentor_list = []
         self.class_teacher_list = {}
         self.object_list = {}
 
@@ -58,8 +58,11 @@ class School:
         if not self.students_list:
             print('Lista uczniów jest pusta')
         else:
-            print(self.students_list)
-            print(self.class_list)
+            for name, value in self.object_list.items():
+                for c in value['number_class']:
+                    print(name, self.class_list[c]['students'], value['teachers'])
+
+
 
     def add_class_teacher(self):
         self.first_name = input('Podaj imię: ')
@@ -81,7 +84,7 @@ class School:
         else:
             for name, value in self.class_teacher_list.items():
                 for c in value['class']:
-                    print(name, self.class_list[c]['students'])
+                    print(f'Wychowawca: {name}, lista uczniów w klasie: ', self.class_list[c]['students'])
 
     def show_students_class_teacher(self):
         if not self.class_teacher_list:
@@ -89,7 +92,11 @@ class School:
         else:
             for name, value in self.class_teacher_list.items():
                 for c in value['class']:
-                    print(name, self.class_list[c]['students'])
+                    if value:
+                        all_students = []
+                        all_students += self.class_list[c]['students']
+                        print(all_students)
+                    # print(f'Wychowawca: {name}, posiada następujących uczniów w klasie:', self.class_list[c]['students'])
 
 
 class Student:
@@ -139,15 +146,16 @@ while True:
         szkola.show_object_list()
     if command == 'wychowawca':
         szkola.add_class_teacher()
-        # szkola.show_class_teacher_students()
 
-if mode == 'nazwa klasy':
-    szkola.show_students_class_teacher()
+
+if mode == 'nazwa':
+    szkola.show_class_teacher_students()
 if mode == 'wychowawca':
     szkola.show_students_class_teacher()
 if mode == 'nauczyciel':
     pass
 if mode == 'uczen':
-    pass
+    szkola.show_students_list()
+
 
 
