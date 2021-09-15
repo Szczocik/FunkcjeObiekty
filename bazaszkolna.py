@@ -42,16 +42,10 @@ class School:
 
 
     def add_student(self):
-        self.first_name = input('Podaj imię: ')
-        self.name = input('Podaj nazwisko: ')
-        self.number_class = input('Podaj klasę: ')
-        uczen = Student(first_name=self.first_name, name=self.name, number_class=self.number_class)
-        self.students_list.append(uczen)
+        uczen = Student()
+        uczen.load(self)
 
-        if not self.class_list.get(self.number_class):
-            self.class_list[self.number_class] = {'students':[f'{self.first_name} {self.name}']}
-        else:
-            self.class_list[self.number_class]['students'].append(f'{self.first_name} {self.name}')
+
         print(self.class_list)
 
     def show_students_list(self):
@@ -90,19 +84,32 @@ class School:
         if not self.class_teacher_list:
             print('Lista klas jest pusta')
         else:
-            for name, value in self.class_teacher_list.items():
+            pass
+            # for name, value in self.class_teacher_list.items():
                 # f value['class']:
                 #     all_students = []
                 #     all_students += self.class_list[c]['students']
                 #     print(all_students)
-                print(f'Wychowawca: {name}, posiada następujących uczniów w klasie:', self.class_list[c]['students'])
+                # print(f'Wychowawca: {name}, posiada następujących uczniów w klasie:', self.class_list[c]['students'])
 
 
 class Student:
-    def __init__(self, first_name, name, number_class):
-        self.first_name = first_name
-        self.name = name
-        self.number_class = number_class
+    def __init__(self):
+        self.first_name = ''
+        self.name = ''
+        self.number_class = ''
+
+    def load(self, school):
+        self.first_name = input('Podaj imię: ')
+        self.name = input('Podaj nazwisko: ')
+        self.number_class = input('Podaj klasę: ')
+
+        school.students_list.append(self)
+
+        if not school.class_list.get(self.number_class):
+            school.class_list[self.number_class] = {'students':[self]}
+        else:
+            school.class_list[self.number_class]['students'].append(self)
 
     def __repr__(self):
         return f'({self.first_name} {self.name}, klasa {self.number_class})'
@@ -150,7 +157,8 @@ while True:
 if mode == 'nazwa':
     szkola.show_class_teacher_students()
 if mode == 'wychowawca':
-    szkola.show_students_class_teacher()
+    pass
+    # szkola.show_students_class_teacher()
 if mode == 'nauczyciel':
     pass
 if mode == 'uczen':
