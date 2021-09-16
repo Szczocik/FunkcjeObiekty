@@ -15,7 +15,7 @@ class School:
         self.teachers_list = {}
         self.class_list = {}
         self.class_teacher_list = {}
-        self.object_list = {}
+        self.object_list = []
 
     def add_teacher(self):
 
@@ -122,7 +122,7 @@ class Teacher:
         self.first_name = ''
         self.name = ''
         self.object = ''
-        self.number_class = ''
+        self.class_list = []
 
     def load(self, school):
         self.first_name = input('Podaj imię: ')
@@ -130,53 +130,49 @@ class Teacher:
         self.object = input('Podaj przedmiot: ')
 
         school.object_list.append(self)
+        k = f'{self.first_name} {self.name}'
+        if k not in school.teachers_list:
+            school.teachers_list[k] = [self]
+        else:
+            school.teachers_list[k].append(self)
 
         while True:
-            self.number_class = input('Podaj klasę: ')
-            if len(self.number_class) == 0:
+            number_class = input('Podaj klasę: ')
+            if not number_class.strip():
                 break
-
-            if not school.teachers_list.get(f'{self.first_name} {self.name}'):
-                school.teachers_list[f'{self.first_name} {self.name}'] = {'number_class':[self],'object':[self]}
-            else:
-                if self.number_class not in school.teachers_list[f'{self.first_name} {self.name}']['number_class']:
-                    school.teachers_list[f'{self.first_name} {self.name}']['number_class'].append(self)
-                    print(school.object_list)
-        # if not school.class_list.get(self.number_class):
-        #     school.class_list[self.number_class] = {'students':[self]}
-        # else:
-        #     school.class_list[self.number_class]['students'].append(self)
+            self.class_list.append(number_class)
 
     def __repr__(self):
-        return f'({self.first_name} {self.name}, klasa {self.number_class})'
+        return f'({self.first_name} {self.name}, klasa {self.class_list}, przedmiot {self.object})'
 
 
-
-    def __repr__(self):
-        return f'({self.first_name} {self.name}, przedmiot {self.object})'
 
 class ClassTeacher:
     def __init__(self):
         self.first_name = ''
         self.name = ''
-        self.number_class = ''
+        self.class_list = []
 
     def load(self, school):
         self.first_name = input('Podaj imię: ')
         self.name = input('Podaj nazwisko: ')
 
-        school.class_teacher_list.append(self)
+        school.object_list.append(self)
+        k = f'{self.first_name} {self.name}'
+        if k not in school.teachers_list:
+            school.class_teacher_list[k] = [self]
+        else:
+            school.class_teacher_list[k].append(self)
 
         while True:
-            self.number_class = input('Podaj klasę: ')
-            if len(self.number_class) == 0:
+            number_class = input('Podaj klasę: ')
+            if not number_class.strip():
                 break
-            if not school.teachers_list.get(f'{self.first_name} {self.name}'):
-                school.teacher_list[f'{self.first_name} {self.name}'] = {'class': [self]}
-            else:
-                school.teacher_list[f'{self.first_name} {self.name}']['class'].append(self)
-                print(school.teacher_list)
-                print(self.class_teacher_list)
+            self.class_list.append(number_class)
+
+    def __repr__(self):
+        return f'({self.first_name} {self.name}, klasa {self.class_list})'
+
 szkola = School()
 
 while True:
