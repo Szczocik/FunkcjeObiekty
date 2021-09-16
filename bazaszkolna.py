@@ -23,22 +23,6 @@ class School:
         nauczyciel.load(self)
 
 
-        # self.first_name = input('Podaj imię: ')
-        # self.name = input('Podaj nazwisko: ')
-        # self.object = input('Podaj przedmiot: ')
-
-        # while True:
-        #     self.number_class = input('Podaj klasę: ')
-        #     if len(self.number_class) == 0:
-        #         break
-        #
-        #     if not self.object_list.get(self.object):
-        #         self.object_list[self.object] = {'number_class':[f'{self.number_class}'],'teachers':[f'{self.first_name} {self.name}']}
-        #     else:
-        #         if self.number_class not in self.object_list[self.object]['number_class']:
-        #             self.object_list[self.object]['number_class'].append(f'{self.number_class}')
-
-
     def show_object_list(self):
         if not self.object_list:
             print('Lista przedmiotów jest pusta')
@@ -53,32 +37,11 @@ class School:
 
         print(self.class_list)
 
-    def show_students_list(self):
-        if not self.students_list:
-            print('Lista uczniów jest pusta')
-        else:
-            for name, value in self.object_list.items():
-                for c in value['number_class']:
-                    print(name, self.class_list[c]['students'], value['teachers'])
-
-
 
     def add_class_teacher(self):
-        wychowawca = ClassTeacher
+        wychowawca = ClassTeacher()
         wychowawca.load(self)
 
-        # self.first_name = input('Podaj imię: ')
-        # self.name = input('Podaj nazwisko: ')
-        #
-        # while True:
-        #     self.number_class = input('Podaj klasę: ')
-        #     if len(self.number_class) == 0:
-        #         break
-        #     if not self.class_teacher_list.get(f'{self.first_name} {self.name}'):
-        #         self.class_teacher_list[f'{self.first_name} {self.name}'] = {'class': [self.number_class]}
-        #     else:
-        #         self.class_teacher_list[f'{self.first_name} {self.name}']['class'].append(self.number_class)
-        #         print(self.class_teacher_list)
 
     def show_class_teacher_students(self):
         if not self.class_teacher_list:
@@ -159,7 +122,7 @@ class ClassTeacher:
 
         school.object_list.append(self)
         k = f'{self.first_name} {self.name}'
-        if k not in school.teachers_list:
+        if k not in school.class_teacher_list:
             school.class_teacher_list[k] = [self]
         else:
             school.class_teacher_list[k].append(self)
@@ -175,6 +138,7 @@ class ClassTeacher:
 
 szkola = School()
 
+
 while True:
     command = input("Wpisz typ użytkownika: ")
     if command not in USER_TYPE:
@@ -185,11 +149,11 @@ while True:
         break
     if command == 'uczen':
         szkola.add_student()
-        szkola.show_students_list()
+
         continue
     if command == 'nauczyciel':
         szkola.add_teacher()
-        szkola.show_object_list()
+
     if command == 'wychowawca':
         szkola.add_class_teacher()
 
@@ -197,12 +161,12 @@ while True:
 if mode == 'nazwa':
     szkola.show_class_teacher_students()
 if mode == 'wychowawca':
-    pass
-    # szkola.show_students_class_teacher()
+    szkola.add_teacher()
+
 if mode == 'nauczyciel':
-    pass
+    szkola.add_teacher()
 if mode == 'uczen':
-    szkola.show_students_list()
+    szkola.add_student()
 
 
 
