@@ -3,7 +3,7 @@ import sys
 
 PHRASE = ('nazwa klasy', 'wychowawca', 'nauczyciel', 'uczen')  # dozwolone komendy uruchomienia wejścia
 USER_TYPE = ('uczen', 'nauczyciel', 'wychowawca', 'koniec')  # dozwolone komendy uruchomienia programu
-# mode = PHRASE
+
 
 
 mode = sys.argv[1]
@@ -23,13 +23,6 @@ class School:
         nauczyciel.load(self)
 
 
-    def show_object_list(self):
-        if not self.object_list:
-            print('Lista przedmiotów jest pusta')
-        else:
-            print(self.object_list)
-
-
     def add_student(self):
         uczen = Student()
         uczen.load(self)
@@ -42,14 +35,18 @@ class School:
         wychowawca = ClassTeacher()
         wychowawca.load(self)
 
+    def show_object_list(self):
+        if not self.object_list:
+            print('Lista przedmiotów jest pusta')
+        else:
+            print(self.object_list)
 
     def show_class_teacher_students(self):
         if not self.class_teacher_list:
             print('Lista klas jest pusta')
         else:
             for name, value in self.class_teacher_list.items():
-                for c in value['class']:
-                    print(f'Wychowawca: {name}, lista uczniów w klasie: ', self.class_list[c]['students'])
+                print(f'Wychowawca: {name}, klasy: {value}')
 
     def show_students_class_teacher(self):
         if not self.class_teacher_list:
@@ -76,8 +73,9 @@ class Student:
         else:
             school.class_list[self.number_class]['students'].append(self)
 
+
     def __repr__(self):
-        return f'({self.first_name} {self.name}, klasa {self.number_class})'
+        return f'({self.first_name} {self.name}, z klasy {self.number_class})'
 
 
 class Teacher:
@@ -107,7 +105,6 @@ class Teacher:
 
     def __repr__(self):
         return f'({self.first_name} {self.name}, klasa {self.class_list}, przedmiot {self.object})'
-
 
 
 class ClassTeacher:
@@ -159,14 +156,14 @@ while True:
 
 
 if mode == 'nazwa':
-    szkola.show_class_teacher_students()
+    pass
 if mode == 'wychowawca':
-    szkola.add_teacher()
+    pass
 
 if mode == 'nauczyciel':
-    szkola.add_teacher()
+    pass
 if mode == 'uczen':
-    szkola.add_student()
+    pass
 
 
 
