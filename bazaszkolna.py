@@ -17,6 +17,14 @@ class School:
         self.class_teacher_list = {}
         self.object_list = []
 
+    def get_group(self, symbol):
+        if symbol in self.class_list:
+            return self.class_list[symbol]
+        self.class_list[symbol] = Group(symbol)
+        return self.class_list[symbol]
+
+
+
     def add_teacher(self):
 
         nauczyciel = Teacher()
@@ -76,6 +84,14 @@ class Student:
 
     def __repr__(self):
         return f'({self.first_name} {self.name}, z klasy {self.number_class})'
+
+
+class Group:
+    def __init__(self, symbol):
+        self.symbol = symbol
+        self.class_teacher = None
+        self.teachers = []
+        self.students = []
 
 
 class Teacher:
