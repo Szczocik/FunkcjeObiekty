@@ -23,9 +23,6 @@ class School:
         self.class_list[symbol] = Group(symbol)
         return self.class_list[symbol]
 
-    print(self.class_list)
-
-
 
 
     def add_teacher(self):
