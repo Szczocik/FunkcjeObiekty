@@ -73,14 +73,14 @@ class Student:
         self.name = input('Podaj nazwisko: ')
         self.number_class = input('Podaj klasę: ')
 
-
         school.students_list.append(self)
 
         if not school.class_list.get(self.number_class):
-            school.class_list[self.number_class] = {'students':[self]}
+            school.class_list[self.number_class] = {'students': [self]}
         else:
             school.class_list[self.number_class]['students'].append(self)
 
+        print(school.students_list)
 
     def __repr__(self):
         return f'({self.first_name} {self.name}, z klasy {self.number_class})'
@@ -118,9 +118,10 @@ class Teacher:
             if not number_class.strip():
                 break
             self.class_list.append(number_class)
+        print(school.teachers_list)
 
     def __repr__(self):
-        return f'({self.first_name} {self.name}, klasa {self.class_list}, przedmiot {self.object})'
+        return f'({self.first_name} {self.name}, klasy: {self.class_list}, przedmiot {self.object})'
 
 
 class ClassTeacher:
@@ -145,9 +146,10 @@ class ClassTeacher:
             if not number_class.strip():
                 break
             self.class_list.append(number_class)
+        print(school.class_teacher_list)
 
     def __repr__(self):
-        return f'({self.first_name} {self.name}, klasa {self.class_list})'
+        return f'({self.first_name} {self.name}, klasy: {self.class_list})'
 
 szkola = School()
 
