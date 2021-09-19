@@ -25,6 +25,8 @@ class School:
 
 
 
+
+
     def add_teacher(self):
 
         nauczyciel = Teacher()
@@ -173,8 +175,9 @@ while True:
         szkola.add_class_teacher()
 
 
-if mode == 'nazwa':
-    pass
+if mode == '':
+    if mode
+
 if mode == 'wychowawca':
     pass
 
