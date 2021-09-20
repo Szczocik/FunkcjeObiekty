@@ -38,25 +38,6 @@ class School:
         wychowawca = ClassTeacher()
         wychowawca.load(self)
 
-    def show_object_list(self):
-        if not self.object_list:
-            print('Lista przedmiotów jest pusta')
-        else:
-            print(self.object_list)
-
-    def show_class_teacher_students(self):
-        if not self.class_teacher_list:
-            print('Lista klas jest pusta')
-        else:
-            for name, value in self.class_teacher_list.items():
-                print(f'Wychowawca: {name}, klasy: {value}')
-
-    def show_students_class_teacher(self):
-        if not self.class_teacher_list:
-            print('Lista klas jest pusta')
-        else:
-            pass
-
 
 class Group:
     def __init__(self, symbol):
@@ -64,7 +45,6 @@ class Group:
         self.class_teacher = None
         self.teachers = []
         self.students = []
-
 
 
 class Student:
@@ -174,9 +154,7 @@ while True:
 
 
 if mode == 'nazwa':
-    szkola.show_object_list()
-    szkola.show_class_teacher_students()
-    szkola.show_students_class_teacher()
+    pass
 if mode == 'wychowawca':
     pass
 
