@@ -1,12 +1,12 @@
-import pprint
+
 import sys
 
 PHRASE = ('nazwa klasy', 'wychowawca', 'nauczyciel', 'uczen')  # dozwolone komendy uruchomienia wejścia
 USER_TYPE = ('uczen', 'nauczyciel', 'wychowawca', 'koniec')  # dozwolone komendy uruchomienia programu
 
 
-
 mode = sys.argv[1]
+
 
 class School:
     def __init__(self):
@@ -23,26 +23,16 @@ class School:
         self.class_list[symbol] = Group(symbol)
         return self.class_list[symbol]
 
-
-
-
-
-
-
-
     def add_teacher(self):
 
         nauczyciel = Teacher()
         nauczyciel.load(self)
 
-
     def add_student(self):
         uczen = Student()
         uczen.load(self)
 
-
         print(self.class_list)
-
 
     def add_class_teacher(self):
         wychowawca = ClassTeacher()
@@ -67,6 +57,16 @@ class School:
         else:
             pass
 
+
+class Group:
+    def __init__(self, symbol):
+        self.symbol = symbol
+        self.class_teacher = None
+        self.teachers = []
+        self.students = []
+
+
+
 class Student:
     def __init__(self):
         self.first_name = ''
@@ -89,18 +89,6 @@ class Student:
 
     def __repr__(self):
         return f'({self.first_name} {self.name}, z klasy {self.number_class})'
-
-
-class Group:
-    def __init__(self, symbol):
-        self.symbol = symbol
-        self.class_teacher = None
-        self.teachers = []
-        self.students = []
-
-        print(self.class_teacher)
-        print(self.teachers)
-        print(self.students)
 
 
 class Teacher:
@@ -160,6 +148,7 @@ class ClassTeacher:
     def __repr__(self):
         return f'({self.first_name} {self.name}, klasy: {self.class_list})'
 
+
 szkola = School()
 
 
@@ -168,27 +157,26 @@ while True:
     if command not in USER_TYPE:
         print(f"Wybierz poprawną komendę: {USER_TYPE}")
         continue
+
     if command == 'koniec':
         print("Koniec programu!")
         break
+
     if command == 'uczen':
         szkola.add_student()
-
-
         continue
+
     if command == 'nauczyciel':
         szkola.add_teacher()
-
 
     if command == 'wychowawca':
         szkola.add_class_teacher()
 
 
-
-if mode == '':
-    symbol = mode
-    szkola.get_group()
-
+if mode == 'nazwa':
+    szkola.show_object_list()
+    szkola.show_class_teacher_students()
+    szkola.show_students_class_teacher()
 if mode == 'wychowawca':
     pass
 
@@ -196,6 +184,3 @@ if mode == 'nauczyciel':
     pass
 if mode == 'uczen':
     pass
-
-
-
