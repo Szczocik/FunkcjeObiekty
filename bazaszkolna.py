@@ -4,9 +4,9 @@ import sys
 PHRASE = ('nazwa klasy', 'wychowawca', 'nauczyciel', 'uczen')  # dozwolone komendy uruchomienia wejścia
 USER_TYPE = ('uczen', 'nauczyciel', 'wychowawca', 'koniec')  # dozwolone komendy uruchomienia programu
 
-
-mode = sys.argv[1]
-
+print(sys.argv[1:])
+mode = tuple(sys.argv[1:])
+print(mode)
 
 class School:
     def __init__(self):
@@ -45,6 +45,7 @@ class Group:
         self.class_teacher = None
         self.teachers = []
         self.students = []
+
 
 
 class Student:
@@ -153,7 +154,7 @@ while True:
         szkola.add_class_teacher()
 
 
-if mode == 'nazwa':
+if mode == '':
     pass
 if mode == 'wychowawca':
     pass
