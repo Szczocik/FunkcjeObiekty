@@ -27,6 +27,9 @@ class School:
 
 
 
+
+
+
     def add_teacher(self):
 
         nauczyciel = Teacher()
@@ -94,6 +97,10 @@ class Group:
         self.class_teacher = None
         self.teachers = []
         self.students = []
+
+        print(self.class_teacher)
+        print(self.teachers)
+        print(self.students)
 
 
 class Teacher:
@@ -167,16 +174,20 @@ while True:
     if command == 'uczen':
         szkola.add_student()
 
+
         continue
     if command == 'nauczyciel':
         szkola.add_teacher()
+
 
     if command == 'wychowawca':
         szkola.add_class_teacher()
 
 
+
 if mode == '':
-    if mode
+    symbol = mode
+    szkola.get_group()
 
 if mode == 'wychowawca':
     pass
