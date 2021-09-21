@@ -4,9 +4,9 @@ import sys
 PHRASE = ('nazwa klasy', 'wychowawca', 'nauczyciel', 'uczen')  # dozwolone komendy uruchomienia wejścia
 USER_TYPE = ('uczen', 'nauczyciel', 'wychowawca', 'koniec')  # dozwolone komendy uruchomienia programu
 
-print(sys.argv[1:])
+
 mode = tuple(sys.argv[1:])
-print(mode)
+
 
 class School:
     def __init__(self):
@@ -24,7 +24,6 @@ class School:
         return self.class_list[symbol]
 
     def add_teacher(self):
-
         nauczyciel = Teacher()
         nauczyciel.load(self)
 
@@ -69,7 +68,7 @@ class Student:
         print(school.students_list)
 
     def __repr__(self):
-        return f'({self.first_name} {self.name}, z klasy {self.number_class})'
+        return f'({self.first_name} {self.name})'
 
 
 class Teacher:
@@ -99,7 +98,7 @@ class Teacher:
         print(school.teachers_list)
 
     def __repr__(self):
-        return f'({self.first_name} {self.name}, klasy: {self.class_list}, przedmiot {self.object})'
+        return f'klasy {self.class_list}, przedmiot {self.object})'
 
 
 class ClassTeacher:
@@ -127,7 +126,7 @@ class ClassTeacher:
         print(school.class_teacher_list)
 
     def __repr__(self):
-        return f'({self.first_name} {self.name}, klasy: {self.class_list})'
+        return f'{self.class_list}'
 
 
 szkola = School()
