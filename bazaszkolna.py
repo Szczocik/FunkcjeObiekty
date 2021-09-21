@@ -5,7 +5,7 @@ PHRASE = ('nazwa klasy', 'wychowawca', 'nauczyciel', 'uczen')  # dozwolone komen
 USER_TYPE = ('uczen', 'nauczyciel', 'wychowawca', 'koniec')  # dozwolone komendy uruchomienia programu
 
 
-mode = tuple(sys.argv[1:])
+mode = sys.argv[1]
 
 
 class School:
@@ -22,6 +22,8 @@ class School:
             return self.class_list[symbol]
         self.class_list[symbol] = Group(symbol)
         return self.class_list[symbol]
+
+
 
     def add_teacher(self):
         nauczyciel = Teacher()
@@ -59,6 +61,8 @@ class Student:
         self.number_class = input('Podaj klasę: ')
 
         school.students_list.append(self)
+        group = school.get_group(self.number_class)
+        group.students.append(self)
 
         if not school.class_list.get(self.number_class):
             school.class_list[self.number_class] = {'students': [self]}
@@ -128,6 +132,11 @@ class ClassTeacher:
     def __repr__(self):
         return f'{self.class_list}'
 
+    def show(self, school):
+        for symbol in self.class_list:
+            group = school.get_group(symbol)
+            for student in group.students:
+                print(student)
 
 szkola = School()
 
@@ -153,7 +162,7 @@ while True:
         szkola.add_class_teacher()
 
 
-if mode == '':
+if mode in szkola.class_list:
     pass
 if mode == 'wychowawca':
     pass
