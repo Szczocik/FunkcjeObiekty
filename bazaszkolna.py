@@ -102,6 +102,12 @@ class Teacher:
             self.class_list.append(number_class)
         print(school.teachers_list)
 
+    def show(self, school):
+        for symbol in self.class_list:
+            group = school.get_group(symbol)
+            for student in group.students:
+                print(student)
+
     # def __repr__(self):
     #     return f'klasy {self.class_list}, przedmiot {self.object})'
 
@@ -167,9 +173,12 @@ while True:
 if mode not in szkola.class_list:
     print(f'Nie ma klasy {mode} w szkole')
 else:
-    for mode in szkola.class_teacher_list:
-        for class_name in szkola.class_teacher_list
-        print(szkola.class_list[class_name].students)
+    for mode in szkola.class_list:
+        print(szkola.class_list[mode].students)
+        # for key, value in szkola.class_teacher_list.items():
+        #     print(key,value)
+        # print(szkola.class_list(mode))
+        # print(szkola.class_teacher_list[class_name].students)
         #     print(class_name)
         #     print(szkola.class_list[class_name].students)
 
