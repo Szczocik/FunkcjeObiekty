@@ -64,10 +64,11 @@ class Student:
         group = school.get_group(self.number_class)
         group.students.append(self)
 
-        if not school.class_list.get(self.number_class):
-            school.class_list[self.number_class] = {'students': [self]}
-        else:
-            school.class_list[self.number_class]['students'].append(self)
+        # if not school.class_list.get(self.number_class):
+        #     school.class_list[self.number_class] = {'students': [self]}
+        # else:
+        #     print(school.class_list[self.number_class])
+        # school.class_list[self.number_class].students.append(self)
 
         print(school.students_list)
 
@@ -129,8 +130,8 @@ class ClassTeacher:
             self.class_list.append(number_class)
         print(school.class_teacher_list)
 
-    def __repr__(self):
-        return f'{self.class_list}'
+    # def __repr__(self):
+    #     return f'{self.class_list}'
 
     def show(self, school):
         for symbol in self.class_list:
@@ -165,7 +166,15 @@ while True:
 if mode in szkola.class_list:
     pass
 if mode == 'wychowawca':
-    pass
+    first_name = input('Podaj imię: ')
+    name = input('Podaj nazwisko: ')
+    k = f'{first_name} {name}'
+    for class_teacher in szkola.class_teacher_list[k]:
+        for class_name in class_teacher.class_list:
+            print(class_name)
+            print(szkola.class_list[class_name].students)
+    # print(szkola.class_teacher_list)
+
 
 if mode == 'nauczyciel':
     pass
