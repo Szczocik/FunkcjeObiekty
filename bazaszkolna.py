@@ -43,7 +43,7 @@ class School:
 class Group:
     def __init__(self, symbol):
         self.symbol = symbol
-        self.class_teacher = None
+        self.class_teachers = None
         self.teachers = []
         self.students = []
 
@@ -194,6 +194,15 @@ if mode == 'wychowawca':
 
 
 if mode == 'nauczyciel':
-    pass
+    first_name = input('Podaj imię: ')
+    name = input('Podaj nazwisko: ')
+    k = f'{first_name} {name}'
+    for teacher in szkola.teachers_list[k]:
+        for class_name in teacher.class_list:
+            print(class_name)
+            # print(szkola.class_list[class_name].class_teachers)
+        # for class_name in teacher_list.class_list:
+        #     print(class_name)
+        #     print(szkola.class_list[class_name].teacher)
 if mode == 'uczen':
     pass
