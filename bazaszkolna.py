@@ -23,8 +23,6 @@ class School:
         self.class_list[symbol] = Group(symbol)
         return self.class_list[symbol]
 
-
-
     def add_teacher(self):
         nauczyciel = Teacher()
         nauczyciel.load(self)
@@ -46,7 +44,6 @@ class Group:
         self.class_teachers = None
         self.teachers = []
         self.students = []
-
 
 
 class Student:
@@ -89,11 +86,11 @@ class Teacher:
         self.object = input('Podaj przedmiot: ')
 
         school.object_list.append(self)
-        k = f'{self.first_name} {self.name}'
-        if k not in school.teachers_list:
-            school.teachers_list[k] = [self]
+        b = f'{self.first_name} {self.name}'
+        if b not in school.teachers_list:
+            school.teachers_list[b] = [self]
         else:
-            school.teachers_list[k].append(self)
+            school.teachers_list[b].append(self)
 
         while True:
             number_class = input('Podaj klasę: ')
@@ -112,7 +109,6 @@ class Teacher:
     #     return f'klasy {self.class_list}, przedmiot {self.object})'
 
 
-
 class ClassTeacher:
     def __init__(self):
         self.first_name = ''
@@ -124,11 +120,11 @@ class ClassTeacher:
         self.name = input('Podaj nazwisko: ')
 
         school.object_list.append(self)
-        k = f'{self.first_name} {self.name}'
-        if k not in school.class_teacher_list:
-            school.class_teacher_list[k] = [self]
+        a = f'{self.first_name} {self.name}'
+        if a not in school.class_teacher_list:
+            school.class_teacher_list[a] = [self]
         else:
-            school.class_teacher_list[k].append(self)
+            school.class_teacher_list[a].append(self)
 
         while True:
             number_class = input('Podaj klasę: ')
@@ -145,6 +141,7 @@ class ClassTeacher:
             group = school.get_group(symbol)
             for student in group.students:
                 print(student)
+
 
 szkola = School()
 
