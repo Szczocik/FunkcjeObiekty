@@ -102,8 +102,9 @@ class Teacher:
             self.class_list.append(number_class)
         print(school.teachers_list)
 
-    def __repr__(self):
-        return f'klasy {self.class_list}, przedmiot {self.object})'
+    # def __repr__(self):
+    #     return f'klasy {self.class_list}, przedmiot {self.object})'
+
 
 
 class ClassTeacher:
@@ -163,8 +164,15 @@ while True:
         szkola.add_class_teacher()
 
 
-if mode in szkola.class_list:
-    pass
+if mode not in szkola.class_list:
+    print(f'Nie ma klasy {mode} w szkole')
+else:
+    for mode in szkola.class_teacher_list:
+        for class_name in szkola.class_teacher_list
+        print(szkola.class_list[class_name].students)
+        #     print(class_name)
+        #     print(szkola.class_list[class_name].students)
+
 if mode == 'wychowawca':
     first_name = input('Podaj imię: ')
     name = input('Podaj nazwisko: ')
