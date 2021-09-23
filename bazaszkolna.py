@@ -41,7 +41,7 @@ class School:
 class Group:
     def __init__(self, symbol):
         self.symbol = symbol
-        self.class_teachers = None
+        self.class_teachers = []
         self.teachers = []
         self.students = []
 
@@ -96,6 +96,8 @@ class Teacher:
             number_class = input('Podaj klasę: ')
             if not number_class.strip():
                 break
+            group = school.get_group(number_class)
+            group.teachers.append(b)
             self.class_list.append(number_class)
         print(school.teachers_list)
 
@@ -130,6 +132,8 @@ class ClassTeacher:
             number_class = input('Podaj klasę: ')
             if not number_class.strip():
                 break
+            group = school.get_group(number_class)
+            group.class_teachers.append(a)
             self.class_list.append(number_class)
         print(school.class_teacher_list)
 
@@ -166,14 +170,13 @@ while True:
     if command == 'wychowawca':
         szkola.add_class_teacher()
 
-
 if mode not in szkola.class_list:
     print(f'Nie ma klasy {mode} w szkole')
 else:
-    for mode in szkola.class_list:
-        print(mode)
+    print(szkola.class_list[mode].students)
+    print(szkola.class_list[mode].class_teachers)
         # for class_teacher in mode.class_teacher_list:
-        print(szkola.class_list[mode].students)
+        # print(szkola.class_list[mode].students)
             # print(class_teacher)
 
         # print(szkola.class_teacher_list.class_teacher)
@@ -199,9 +202,12 @@ if mode == 'nauczyciel':
     first_name = input('Podaj imię: ')
     name = input('Podaj nazwisko: ')
     k = f'{first_name} {name}'
-    for teacher in szkola.teachers_list[k]:
-        for class_name in teacher.class_list:
-            print(class_name)
+    for klasa in szkola.teachers_list[k].class_list:
+        szkola.class_list[klasa].class_teachers
+
+    print(szkola.teachers_list[k].class_list)
+        # for class_name in teacher.class_list:
+        #     print(class_name)
         # for class_name in teacher_list.class_list:
         #     print(class_name)
         #     print(szkola.class_list[class_name].teacher)
