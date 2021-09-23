@@ -137,9 +137,6 @@ class ClassTeacher:
             self.class_list.append(number_class)
         print(school.class_teacher_list)
 
-    # def __repr__(self):
-    #     return f'{self.class_list}'
-
     def show(self, school):
         for symbol in self.class_list:
             group = school.get_group(symbol)
@@ -175,13 +172,6 @@ if mode not in szkola.class_list:
 else:
     print(szkola.class_list[mode].students)
     print(szkola.class_list[mode].class_teachers)
-        # print(szkola.class_teacher_list.class_teacher)
-        # for key, value in szkola.class_teacher_list.items():
-        #     print(key,value)
-        # print(szkola.class_list(mode))
-        # print(szkola.class_teacher_list[class_name].students)
-        #     print(class_name)
-        #     print(szkola.class_list[class_name].students)
 
 if mode == 'wychowawca':
     first_name = input('Podaj imię: ')
