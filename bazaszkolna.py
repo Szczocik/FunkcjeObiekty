@@ -171,10 +171,10 @@ if mode not in szkola.class_list:
     print(f'Nie ma klasy {mode} w szkole')
 else:
     for mode in szkola.class_list:
-        number_class = mode
-        for number_class in school.class_teacher_list:
-            print(number_class)
-            print(szkola.class_list[mode].students)
+        print(mode)
+        # for class_teacher in mode.class_teacher_list:
+        print(szkola.class_list[mode].students)
+            # print(class_teacher)
 
         # print(szkola.class_teacher_list.class_teacher)
         # for key, value in szkola.class_teacher_list.items():
