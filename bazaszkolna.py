@@ -175,10 +175,6 @@ if mode not in szkola.class_list:
 else:
     print(szkola.class_list[mode].students)
     print(szkola.class_list[mode].class_teachers)
-        # for class_teacher in mode.class_teacher_list:
-        # print(szkola.class_list[mode].students)
-            # print(class_teacher)
-
         # print(szkola.class_teacher_list.class_teacher)
         # for key, value in szkola.class_teacher_list.items():
         #     print(key,value)
@@ -195,8 +191,6 @@ if mode == 'wychowawca':
         for class_name in class_teacher.class_list:
             print(class_name)
             print(szkola.class_list[class_name].students)
-    # print(szkola.class_teacher_list)
-
 
 if mode == 'nauczyciel':
     first_name = input('Podaj imię: ')
