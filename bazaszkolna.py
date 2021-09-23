@@ -61,12 +61,6 @@ class Student:
         group = school.get_group(self.number_class)
         group.students.append(self)
 
-        # if not school.class_list.get(self.number_class):
-        #     school.class_list[self.number_class] = {'students': [self]}
-        # else:
-        #     print(school.class_list[self.number_class])
-        # school.class_list[self.number_class].students.append(self)
-
         print(school.students_list)
 
     def __repr__(self):
@@ -106,9 +100,6 @@ class Teacher:
             group = school.get_group(symbol)
             for student in group.students:
                 print(student)
-
-    # def __repr__(self):
-    #     return f'klasy {self.class_list}, przedmiot {self.object})'
 
 
 class ClassTeacher:
