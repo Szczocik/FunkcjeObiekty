@@ -63,9 +63,6 @@ class Student:
 
         print(school.students_list)
 
-    def __repr__(self):
-        return f'({self.first_name} {self.name})'
-
 
 class Teacher:
     def __init__(self):
@@ -81,11 +78,11 @@ class Teacher:
 
         school.object_list.append(self)
         b = f'{self.first_name} {self.name}'
-        if b not in school.teachers_list:
-            school.teachers_list[b] = [self]
-        else:
-            school.teachers_list[b].append(self)
-
+        # if b not in school.teachers_list:
+        #     school.teachers_list[b] = [self]
+        # else:
+        #     school.teachers_list[b].append(self)
+        school.teachers_list[b] = self
         while True:
             number_class = input('Podaj klasę: ')
             if not number_class.strip():
@@ -177,21 +174,15 @@ if mode == 'nauczyciel':
     first_name = input('Podaj imię: ')
     name = input('Podaj nazwisko: ')
     k = f'{first_name} {name}'
-    for klasa in szkola.teachers_list[k].class_list:
-        szkola.class_list[klasa].class_teachers
+    print(szkola.class_list)
+    for kl in szkola.teachers_list[k].class_list:
+        print(szkola.class_list[kl].class_teachers)
 
-    print(szkola.teachers_list[k].class_list)
-        # for class_name in teacher.class_list:
-        #     print(class_name)
-        # for class_name in teacher_list.class_list:
-        #     print(class_name)
-        #     print(szkola.class_list[class_name].teacher)
 if mode == 'uczen':
     first_name = input('Podaj imię: ')
     name = input('Podaj nazwisko: ')
     k = f'{first_name} {name}'
-    for k in szkola.class_list.keys():
-        print(k)
+    for k in szkola.students_list:
+        for teacher in szkola.class_list[k.number_class].teachers:
+            print(f'{teacher}: {szkola.teachers_list[teacher].object}')
 
-        # for class_name in students.class_list:
-        #     print(class_name)
