@@ -61,7 +61,7 @@ class Student:
         group = school.get_group(self.number_class)
         group.students.append(self)
 
-        print(school.students_list)
+        # print(school.students_list)
 
 
 class Teacher:
@@ -90,13 +90,13 @@ class Teacher:
             group = school.get_group(number_class)
             group.teachers.append(b)
             self.class_list.append(number_class)
-        print(school.teachers_list)
+        # print(school.teachers_list)
 
-    def show(self, school):
-        for symbol in self.class_list:
-            group = school.get_group(symbol)
-            for student in group.students:
-                print(student)
+    # def show(self, school):
+    #     for symbol in self.class_list:
+    #         group = school.get_group(symbol)
+    #         for student in group.students:
+    #             print(student)
 
 
 class ClassTeacher:
@@ -123,13 +123,13 @@ class ClassTeacher:
             group = school.get_group(number_class)
             group.class_teachers.append(a)
             self.class_list.append(number_class)
-        print(school.class_teacher_list)
+        # print(school.class_teacher_list)
 
-    def show(self, school):
-        for symbol in self.class_list:
-            group = school.get_group(symbol)
-            for student in group.students:
-                print(student)
+    # def show(self, school):
+    #     for symbol in self.class_list:
+    #         group = school.get_group(symbol)
+    #         for student in group.students:
+                # print(student)
 
 
 szkola = School()
@@ -140,18 +140,14 @@ while True:
     if command not in USER_TYPE:
         print(f"Wybierz poprawną komendę: {USER_TYPE}")
         continue
-
     if command == 'koniec':
         print("Koniec programu!")
         break
-
     if command == 'uczen':
         szkola.add_student()
         continue
-
     if command == 'nauczyciel':
         szkola.add_teacher()
-
     if command == 'wychowawca':
         szkola.add_class_teacher()
 
@@ -185,4 +181,3 @@ if mode == 'uczen':
     for k in szkola.students_list:
         for teacher in szkola.class_list[k.number_class].teachers:
             print(f'{teacher}: {szkola.teachers_list[teacher].object}')
-
