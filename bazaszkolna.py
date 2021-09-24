@@ -31,8 +31,6 @@ class School:
         uczen = Student()
         uczen.load(self)
 
-        print(self.class_list)
-
     def add_class_teacher(self):
         wychowawca = ClassTeacher()
         wychowawca.load(self)
@@ -61,8 +59,6 @@ class Student:
         group = school.get_group(self.number_class)
         group.students.append(self)
 
-        # print(school.students_list)
-
 
 class Teacher:
     def __init__(self):
@@ -78,11 +74,8 @@ class Teacher:
 
         school.object_list.append(self)
         b = f'{self.first_name} {self.name}'
-        # if b not in school.teachers_list:
-        #     school.teachers_list[b] = [self]
-        # else:
-        #     school.teachers_list[b].append(self)
         school.teachers_list[b] = self
+
         while True:
             number_class = input('Podaj klasę: ')
             if not number_class.strip():
@@ -90,13 +83,6 @@ class Teacher:
             group = school.get_group(number_class)
             group.teachers.append(b)
             self.class_list.append(number_class)
-        # print(school.teachers_list)
-
-    # def show(self, school):
-    #     for symbol in self.class_list:
-    #         group = school.get_group(symbol)
-    #         for student in group.students:
-    #             print(student)
 
 
 class ClassTeacher:
@@ -123,13 +109,6 @@ class ClassTeacher:
             group = school.get_group(number_class)
             group.class_teachers.append(a)
             self.class_list.append(number_class)
-        # print(school.class_teacher_list)
-
-    # def show(self, school):
-    #     for symbol in self.class_list:
-    #         group = school.get_group(symbol)
-    #         for student in group.students:
-                # print(student)
 
 
 szkola = School()
@@ -163,14 +142,12 @@ if mode == 'wychowawca':
     k = f'{first_name} {name}'
     for class_teacher in szkola.class_teacher_list[k]:
         for class_name in class_teacher.class_list:
-            print(class_name)
             print(szkola.class_list[class_name].students)
 
 if mode == 'nauczyciel':
     first_name = input('Podaj imię: ')
     name = input('Podaj nazwisko: ')
     k = f'{first_name} {name}'
-    print(szkola.class_list)
     for kl in szkola.teachers_list[k].class_list:
         print(szkola.class_list[kl].class_teachers)
 
