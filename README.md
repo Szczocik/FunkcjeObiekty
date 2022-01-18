@@ -1,4 +1,4 @@
-# FunkcjeObiekty
+## FunkcjeObiekty
 Mamy trzy typy użytkowników:
 - **Wychowawca** - ma przypisane klasy
 - **Nauczyciel** - Mentor ma przypisany przedmiot i wiele klas
